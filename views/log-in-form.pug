@@ -1,0 +1,13 @@
+extends layout
+block content
+    if user
+        h1 WELCOME BACK #{user.username}
+        a(href="/log-out") LOG OUT
+    else
+        h1 please log in
+        form(action="/log-in", method="POST")
+            label(for="username") Username
+            input#username(name="username", placeholder="username", type="text")
+            label(for="password") Password
+            input#password(name="password", type="password")
+            button Log In
